@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Twitter.TwitterViewController.prepareForSegue (Twitter.TwitterViewController)(ObjectiveC.UIStoryboardSegue, sender : Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ():TwitterViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.index">
+            </PersistentString>
+            <PersistentString
+               value = "tweet!.valueForKey(&quot;text&quot;) as? String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Twitter.TweetCell.tweet.didset : Swift.Optional&lt;ObjectiveC.NSDictionary&gt;:TweetCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tweet">
+            </PersistentString>
+            <PersistentString
+               value = "tweet![&quot;text&quot;] as? String">
+            </PersistentString>
+            <PersistentString
+               value = "tweet!.valueForKeyPath(&quot;user.profile_image_url&quot;) as? String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Twitter.TweetViewController.tweet.didset : Swift.Optional&lt;ObjectiveC.NSDictionary&gt;:TweetViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tweet">
+            </PersistentString>
+            <PersistentString
+               value = "tweet.valueForKey(&quot;text&quot;) as? String">
+            </PersistentString>
+            <PersistentString
+               value = "tweetLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "tweetLabel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Twitter.TwitterClient.(loadHomeline (Twitter.TwitterClient) -&gt; (Swift.Optional&lt;(Swift.Optional&lt;Swift.Array&lt;ObjectiveC.NSDictionary&gt;&gt;) -&gt; ()&gt;) -&gt; ()).(closure #1):TwitterClient.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
