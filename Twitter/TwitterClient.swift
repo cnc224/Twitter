@@ -23,7 +23,9 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         get { return Static.instance }
     }
     var loginCompletion: ((success: Bool?, error: NSError?) -> Void)?
-    
+    func checkLogin() -> Bool {
+        return requestSerializer.accessToken != nil
+    }
     func login(completion: ((Bool?, NSError?) -> Void)? ) {
         loginCompletion = completion
         requestSerializer.removeAccessToken()
@@ -73,16 +75,16 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             
         }
     }
-    func retweet(id: String) {
-        GET("https://api.twitter.com/1.1/statuses/retweet/"+id+".json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, data: AnyObject!) -> Void in
+    func retweet(id: Int) {
+        GET("https://api.twitter.com/1.1/statuses/retweet/"+String(id)+".json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, data: AnyObject!) -> Void in
             
             }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 
         }
     }
     
-    func favorite(id: String) {
-        GET("https://api.twitter.com/1.1/favorites/create.json?id="+id, parameters: nil, success: { (operation: AFHTTPRequestOperation!, data: AnyObject!) -> Void in
+    func favorite(id: Int) {
+        GET("https://api.twitter.com/1.1/favorites/create.json?id="+String(id), parameters: nil, success: { (operation: AFHTTPRequestOperation!, data: AnyObject!) -> Void in
             
             }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 
@@ -90,8 +92,8 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         
     }
     
-    func reply(id: String) {
-        GET("https://api.twitter.com/1.1/statuses/retweet.json?id="+id, parameters: nil, success: { (operation: AFHTTPRequestOperation!, data: AnyObject!) -> Void in
+    func reply(id: Int) {
+        GET("https://api.twitter.com/1.1/statuses/retweet.json?id="+String(id), parameters: nil, success: { (operation: AFHTTPRequestOperation!, data: AnyObject!) -> Void in
             
             }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 

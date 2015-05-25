@@ -58,7 +58,6 @@ class TwitterViewController: UIViewController, UITableViewDataSource, UITableVie
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let cell = sender as! TweetCell
-        cell.backgroundColor = .lightGrayColor()
         let tweet = tweets![cell.index!]
         let tweetViewController = segue.destinationViewController as! TweetViewController
         tweetViewController.tweet = tweet

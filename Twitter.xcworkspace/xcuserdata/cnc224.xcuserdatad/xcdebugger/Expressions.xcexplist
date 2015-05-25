@@ -3,13 +3,19 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "Twitter.TwitterViewController.prepareForSegue (Twitter.TwitterViewController)(ObjectiveC.UIStoryboardSegue, sender : Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ():TwitterViewController.swift">
+         contextName = "Twitter.TwitterClient.(loadHomeline (Twitter.TwitterClient) -&gt; (Swift.Optional&lt;(Swift.Optional&lt;Swift.Array&lt;ObjectiveC.NSDictionary&gt;&gt;) -&gt; ()&gt;) -&gt; ()).(closure #1):TwitterClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Twitter.TweetViewController.onRetweet (Twitter.TweetViewController)(Swift.AnyObject) -&gt; ():TweetViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cell.index">
+               value = "tweet">
             </PersistentString>
             <PersistentString
-               value = "tweet!.valueForKey(&quot;text&quot;) as? String">
+               value = "TwitterClient.sharedInstance">
+            </PersistentString>
+            <PersistentString
+               value = "tweet![&quot;id&quot;] as? Int">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -20,10 +26,18 @@
                value = "tweet">
             </PersistentString>
             <PersistentString
-               value = "tweet![&quot;text&quot;] as? String">
+               value = "tweet!.valueForKeyPath(&quot;user.profile_image_url&quot;) as? String">
             </PersistentString>
             <PersistentString
-               value = "tweet!.valueForKeyPath(&quot;user.profile_image_url&quot;) as? String">
+               value = "tweet![&quot;text&quot;] as? String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Twitter.TwitterClient.checkLogin (Twitter.TwitterClient)(Swift.Optional&lt;(Swift.Optional&lt;Swift.Bool&gt;, Swift.Optional&lt;ObjectiveC.NSError&gt;) -&gt; ()&gt;) -&gt; ():TwitterClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "requestSerializer.accessToken">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -45,7 +59,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Twitter.TwitterClient.(loadHomeline (Twitter.TwitterClient) -&gt; (Swift.Optional&lt;(Swift.Optional&lt;Swift.Array&lt;ObjectiveC.NSDictionary&gt;&gt;) -&gt; ()&gt;) -&gt; ()).(closure #1):TwitterClient.swift">
+         contextName = "Twitter.TwitterViewController.prepareForSegue (Twitter.TwitterViewController)(ObjectiveC.UIStoryboardSegue, sender : Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ():TwitterViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tweet!.valueForKey(&quot;text&quot;) as? String">
+            </PersistentString>
+            <PersistentString
+               value = "cell.index">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>
