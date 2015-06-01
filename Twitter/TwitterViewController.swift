@@ -10,9 +10,22 @@ import UIKit
 
 class TwitterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tweetField: UITextField?
+    @IBAction func onSendTweet(sender: AnyObject) {
+        if let text = tweetField?.text {
+            TwitterClient.sharedInstance.tweet(text, completion: { (success: Bool?, error: NSError?) -> Void in
+                if let success = success {
+                    self.tweetField?.text = ""
+                    TwitterClient.sharedInstance.loadHomeline(nil, completion: { (data: [Tweet]?) -> Void in
+                        self.tweets = data
+                    })
+                }
+            })
+        }
+    }
     @IBOutlet weak var twitterTableView: UITableView!
     var refreshControl: UIRefreshControl!
-    var tweets : [NSDictionary]? {
+    var tweets : [Tweet]? {
         didSet {
             twitterTableView.reloadData()
         }
@@ -25,12 +38,14 @@ class TwitterViewController: UIViewController, UITableViewDataSource, UITableVie
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
             twitterTableView.insertSubview(refreshControl, atIndex: 0)
         
+        twitterTableView.rowHeight = UITableViewAutomaticDimension
+        twitterTableView.estimatedRowHeight = 120
+        
         // end of Refresh Control
         // Do any additional setup after loading the view.
-        TwitterClient.sharedInstance.loadHomeline { (data: [NSDictionary]?) -> Void in
+        TwitterClient.sharedInstance.loadHomeline(nil, completion: { (data: [Tweet]?) -> Void in
             self.tweets = data
-            
-        }
+        })
 
     }
 
@@ -77,12 +92,12 @@ class TwitterViewController: UIViewController, UITableViewDataSource, UITableVie
     func onRefresh() {
         delay(2, closure: {
             // pull request again here
-            TwitterClient.sharedInstance.loadHomeline { (data: [NSDictionary]?) -> Void in
+            TwitterClient.sharedInstance.loadHomeline(nil, completion: { (data: [Tweet]?) -> Void in
                 self.tweets = data
                 // only call once at same time.
                 // no need to check if there are more refresh
                 self.refreshControl.endRefreshing()
-            }
+            })
             
         })
     }

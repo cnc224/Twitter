@@ -11,24 +11,24 @@ import UIKit
 class TweetViewController: UIViewController {
     
     @IBOutlet weak var tweetLabel: UILabel!
-    var tweet : NSDictionary?
+    var tweet : Tweet?
     
     @IBAction func onRetweet(sender: AnyObject) {
-        TwitterClient.sharedInstance.retweet(tweet!["id"] as! Int)
+        //TwitterClient.sharedInstance.retweet(tweet!["id"] as! Int)
     }
     
     @IBAction func onFavorite(sender: AnyObject) {
-        TwitterClient.sharedInstance.favorite(tweet!["id"] as! Int)
+        //TwitterClient.sharedInstance.favorite(tweet!["id"] as! Int)
     }
     
     @IBAction func onReply(sender: AnyObject) {
-        TwitterClient.sharedInstance.reply(tweet!["id"] as! Int)
+        //TwitterClient.sharedInstance.reply(tweet!["id"] as! Int)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tweetLabel.text = tweet!["text"] as? String
+        //tweetLabel.text = tweet!["text"] as? String
         // Do any additional setup after loading the view.
     }
 

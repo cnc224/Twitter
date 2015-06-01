@@ -15,15 +15,13 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
-    var tweetText: String?
     var index: Int?
-    var tweet : NSDictionary? {
+    var tweet : Tweet? {
         didSet {
-            profileImageView.setImageWithURL(NSURL(fileURLWithPath: (tweet!.valueForKeyPath("user.profile_image_url") as? String)!))
-            timestampLabel.text = tweet!["created_at"] as? String
-            tweetLabel.text = tweet!["text"] as? String
-            usernameLabel.text = tweet!.valueForKeyPath("user.name") as? String
-            tweetText = tweet!["text"] as? String
+            profileImageView.setImageWithURL(NSURL(string: (tweet?.user?.image!)!))
+            timestampLabel.text = tweet?.createdAtString
+            tweetLabel.text = tweet?.text
+            usernameLabel.text = tweet?.user?.name
         }
     }
     override func awakeFromNib() {

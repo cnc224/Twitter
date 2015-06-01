@@ -3,6 +3,23 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "Twitter.TweetViewController.tweet.didset : Swift.Optional&lt;ObjectiveC.NSDictionary&gt;:TweetViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tweet">
+            </PersistentString>
+            <PersistentString
+               value = "tweet.valueForKey(&quot;text&quot;) as? String">
+            </PersistentString>
+            <PersistentString
+               value = "tweetLabel.text">
+            </PersistentString>
+            <PersistentString
+               value = "tweetLabel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Twitter.TwitterClient.(loadHomeline (Twitter.TwitterClient) -&gt; (Swift.Optional&lt;(Swift.Optional&lt;Swift.Array&lt;ObjectiveC.NSDictionary&gt;&gt;) -&gt; ()&gt;) -&gt; ()).(closure #1):TwitterClient.swift">
       </ContextState>
       <ContextState
@@ -16,6 +33,14 @@
             </PersistentString>
             <PersistentString
                value = "tweet![&quot;id&quot;] as? Int">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Twitter.TwitterClient.checkLogin (Twitter.TwitterClient)(Swift.Optional&lt;(Swift.Optional&lt;Swift.Bool&gt;, Swift.Optional&lt;ObjectiveC.NSError&gt;) -&gt; ()&gt;) -&gt; ():TwitterClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "requestSerializer.accessToken">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -34,27 +59,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Twitter.TwitterClient.checkLogin (Twitter.TwitterClient)(Swift.Optional&lt;(Swift.Optional&lt;Swift.Bool&gt;, Swift.Optional&lt;ObjectiveC.NSError&gt;) -&gt; ()&gt;) -&gt; ():TwitterClient.swift">
+         contextName = "Twitter.Tweet.init (Twitter.Tweet.Type)(dict : ObjectiveC.NSDictionary) -&gt; Twitter.Tweet:Tweet.swift">
          <PersistentStrings>
             <PersistentString
-               value = "requestSerializer.accessToken">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Twitter.TweetViewController.tweet.didset : Swift.Optional&lt;ObjectiveC.NSDictionary&gt;:TweetViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "tweet">
-            </PersistentString>
-            <PersistentString
-               value = "tweet.valueForKey(&quot;text&quot;) as? String">
-            </PersistentString>
-            <PersistentString
-               value = "tweetLabel.text">
-            </PersistentString>
-            <PersistentString
-               value = "tweetLabel">
+               value = "dict">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
