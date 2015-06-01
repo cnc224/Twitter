@@ -9,13 +9,14 @@
 import UIKit
 
 class TwitterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tweetField: UITextField?
     @IBAction func onSendTweet(sender: AnyObject) {
         if let text = tweetField?.text {
             TwitterClient.sharedInstance.tweet(text, completion: { (success: Bool?, error: NSError?) -> Void in
                 if let success = success {
                     self.tweetField?.text = ""
+                    // TODO no need to load, just add to top
                     TwitterClient.sharedInstance.loadHomeline(nil, completion: { (data: [Tweet]?) -> Void in
                         self.tweets = data
                     })
@@ -30,9 +31,11 @@ class TwitterViewController: UIViewController, UITableViewDataSource, UITableVie
             twitterTableView.reloadData()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Refresh Control
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
@@ -47,8 +50,13 @@ class TwitterViewController: UIViewController, UITableViewDataSource, UITableVie
             self.tweets = data
         })
 
+        
     }
-
+    
+    func onLogout() {
+        TwitterClient.sharedInstance.logout()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,20 +72,6 @@ class TwitterViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.index = indexPath.row
         return cell
     }
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let cell = sender as! TweetCell
-        let tweet = tweets![cell.index!]
-        let tweetViewController = segue.destinationViewController as! TweetViewController
-        tweetViewController.tweet = tweet
-    }
-    
     
     // Refresh Control
     func delay(delay:Double, closure:()->()) {
@@ -102,4 +96,5 @@ class TwitterViewController: UIViewController, UITableViewDataSource, UITableVie
         })
     }
     // end of Refresh Control
+    
 }

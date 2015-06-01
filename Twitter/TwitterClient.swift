@@ -14,6 +14,11 @@ let twitterConsumerSecret = "dzV5tP3a1Z95FFwDiAY9SRdq9Ho7gblFXUccOWJzX4jJmKtFV7"
 let twitterStorageKey = "twitterStorageKey"
 
 class TwitterClient: BDBOAuth1RequestOperationManager {
+    var backgroundColor: UIColor {
+        get {
+            return UIColor(red: CGFloat(80/255.0), green: CGFloat(170/255.0), blue: (240/255.0), alpha: CGFloat(1.0))
+        }
+    }
     var _currentUser: User?
     struct Static {
         static var instance = TwitterClient(baseURL: twitterBaseUrl,
@@ -84,7 +89,11 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                 self.loginCompletion!(success: false, error: error)
         }
     }
-    // login 
+    
+    func logout() {
+        requestSerializer.removeAccessToken()
+        currentUser = nil
+    }
     
     func loadHomeline(params: NSDictionary?, completion: (([Tweet]?) -> Void)?) {
         GET("https://api.twitter.com/1.1/statuses/home_timeline.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, data: AnyObject!) -> Void in

@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = TwitterClient.sharedInstance.backgroundColor
         // Do any additional setup after loading the view, typically from a nib.
         if TwitterClient.sharedInstance.checkLogin() {
             performSegueWithIdentifier("LoginSegue", sender: self)

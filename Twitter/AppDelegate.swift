@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         if let user = TwitterClient.sharedInstance.currentUser {
-            var viewController = storyboard.instantiateViewControllerWithIdentifier("TwitterViewController") as! TwitterViewController
+            var viewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as! UIViewController
             window?.rootViewController = viewController
+            application.setStatusBarStyle(.LightContent, animated: false)
         }
         return true
     }

@@ -1,34 +1,18 @@
 //
-//  TweetViewController.swift
+//  MentionsViewController.swift
 //  Twitter
 //
-//  Created by Chen NC on 5/24/15.
+//  Created by Chen NC on 5/31/15.
 //  Copyright (c) 2015 cnc224. All rights reserved.
 //
 
 import UIKit
 
-class TweetViewController: UIViewController {
-    
-    @IBOutlet weak var tweetLabel: UILabel!
-    var tweet : Tweet?
-    
-    @IBAction func onRetweet(sender: AnyObject) {
-        //TwitterClient.sharedInstance.retweet(tweet!["id"] as! Int)
-    }
-    
-    @IBAction func onFavorite(sender: AnyObject) {
-        //TwitterClient.sharedInstance.favorite(tweet!["id"] as! Int)
-    }
-    
-    @IBAction func onReply(sender: AnyObject) {
-        //TwitterClient.sharedInstance.reply(tweet!["id"] as! Int)
-    }
-    
+class MentionsViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //tweetLabel.text = tweet!["text"] as? String
         // Do any additional setup after loading the view.
     }
 
